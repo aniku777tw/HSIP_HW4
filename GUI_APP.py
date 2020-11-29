@@ -1,6 +1,7 @@
 import sys
-from PyQt5.QtWidgets import QApplication, QMainWindow, QFileDialog, QSizePolicy, QMessageBox
-from PyQt5.QtCore import QCoreApplication
+from PyQt5.QtWidgets import QApplication, QMainWindow, QFileDialog, QSizePolicy,QMessageBox
+from PyQt5.QtCore import QCoreApplication,Qt
+from PyQt5 import QtGui
 from GUI import Ui_MainWindow
 
 import numpy as np
@@ -76,8 +77,7 @@ class AppWindow(QMainWindow):
         self.ui.verticalLayout_5.addWidget(self.fig_mse)
         
         self.show()
-
-            
+   
     def pushButton_2_Click(self):
         filename =  r"res.npz"
         res = np.load(filename, allow_pickle=True)
@@ -218,6 +218,7 @@ class AppWindow(QMainWindow):
             self.fig_mse.axes.plot(mse, 'r')
             self.fig_mse.draw()
             self.ui.verticalLayout_5.addWidget(self.fig_mse)
+
 
         
 app = QCoreApplication.instance()

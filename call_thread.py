@@ -48,9 +48,8 @@ class Run_Pixel(QRunnable):
             delay = 25
             for i in range(4096):
                 if i > 175 :
-                    delay = 30
-                pause( self.all_t[i]*30) 
-                #time.sleep(self.all_t[i]*delay)
+                    delay = 34.3
+                time.sleep(self.all_t[i]*delay)
                 img[i] = self.all_img[i]
                 result['img'] = img.reshape([64, 64])
                 result['i'] = i
@@ -74,9 +73,8 @@ class Run_Time(QRunnable):
             delay = 25
             for i in range(4096):
                 if i > 175 :
-                    delay = 30
-                pause(self.all_t[i]*30)
-                #time.sleep(self.all_t[i]*delay)
+                    delay = 34.3
+                time.sleep(self.all_t[i]*delay)
                 t1.append(self.t1[i])
                 t2.append(self.t2[i])
                 result['time_cr'] = t1
@@ -105,9 +103,9 @@ class Run_MSE(QRunnable):
             delay = 25
             for i in range(4096):
                 if i > 175 :
-                    delay = 30
-                pause(self.all_t[i]*30)
-                #time.sleep(self.all_t[i] * delay)
+                    delay = 34.3
+                
+                time.sleep(self.all_t[i] * delay)
                 mse.append(self.all_img[i])
                 result['mse'] = mse
                 self.res.callback_signal.emit('doing', result)
